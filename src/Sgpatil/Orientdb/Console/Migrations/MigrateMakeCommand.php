@@ -1,6 +1,6 @@
 <?php namespace Sgpatil\Orientdb\Console\Migrations;
 
-use Illuminate\Support\Composer;
+use Illuminate\Foundation\Composer;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 use Sgpatil\Orientdb\Migrations\MigrationCreator;
@@ -37,10 +37,10 @@ class MigrateMakeCommand extends BaseCommand {
 	 * Create a new migration install command instance.
 	 *
 	 * @param  \Illuminate\Database\Migrations\MigrationCreator  $creator
-	 * @param  \Illuminate\Foundation\Composer  $composer
+	 * @param  \Illuminate\Foundation\Composer  $composer 
 	 * @return void
 	 */
-	public function __construct(MigrationCreator $creator, Composer $composer)
+	public function __construct(MigrationCreator $creator, $composer) // Remove fixed Composer to fallback to 5.1
 	{
 		parent::__construct();
 
