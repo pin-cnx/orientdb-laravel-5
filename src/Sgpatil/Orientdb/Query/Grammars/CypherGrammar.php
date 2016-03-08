@@ -751,7 +751,12 @@ class CypherGrammar extends Grammar
         if ($values != NULL) {
             $property_query = "CONTENT " . json_encode($values);
         }
-        return "create edge {$relationship->getType()} from $from to $to " . $property_query;
+        if(is_string($relationship)){
+            $type = $relationship;
+        }else{
+            $type = $relationship-getType();
+        }    
+        return "create edge {$type} from $from to $to " . $property_query;
 
     }
 }
